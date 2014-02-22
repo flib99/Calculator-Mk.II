@@ -11,14 +11,14 @@ namespace WindowsFormsApplication1
         }
 
         private string displayNumber = "";  //Declare integer
-        private int numberOne;      
-        private int numberTwo;
-        private bool plusOrMinus;
-        private int answer;
+        private int numberOne;		//First number
+        private int numberTwo;		//Second number
+        private bool plusOrMinus;		//Whether plus or minus is clicked
+        private int answer;		//The answer
 
         private void btn1_Click(object sender, EventArgs e)    //On button 1 click. Same process for every button.
         {
-            displayNumber += "1";       //Cncatinates 1 to string displayNumber
+            displayNumber += "1";       //Conctanates 1 to string displayNumber
             display.Text = displayNumber;   //Make the display be equal to displayNumber
         }
 
@@ -76,45 +76,44 @@ namespace WindowsFormsApplication1
             display.Text = displayNumber;
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)		//On the clear button click
         {
-            displayNumber = "";
+            displayNumber = "";		//Sets the number in the display as empty
             display.Text = displayNumber;
-            numberOne = 0;
-            numberTwo = 0;
-            answer = 0;
+            numberOne = 0;		//Sets numberOne as 0
+            numberTwo = 0;		//Sets numberTwo as 0
+            answer = 0;		//Sets the answer to 0
         }
 
-        private void btnPlus_Click(object sender, EventArgs e)
+        private void btnPlus_Click(object sender, EventArgs e)		//Plus button click
         {
-            numberOne = int.Parse(displayNumber);
-            plusOrMinus = true;
-            display.Text = "";
+            numberOne = int.Parse(displayNumber);		//Converts the display value to an integer and stores it as the first number
+            plusOrMinus = true;		//Sets plusOrMinus to true indicating the plus button is clicked
+            display.Text = "";		//Resets the display
             displayNumber = "";
         }
 
-        private void btnMinus_Click(object sender, EventArgs e)
+        private void btnMinus_Click(object sender, EventArgs e)		//Minus button click
         {
-            numberOne = int.Parse(displayNumber);
-            plusOrMinus = false;
-            display.Text = "";
+			numberOne = int.Parse(displayNumber);		//Converts the display value to an integer and stores it as the first number
+            plusOrMinus = false;		//Sets plusOrMinus to false indicating the minus button is clicked
+			display.Text = "";		//Resets the display
             displayNumber = "";
         }
 
-        private void btnEqual_Click(object sender, EventArgs e)
+        private void btnEqual_Click(object sender, EventArgs e)		//On equal button click
         {
-            numberTwo = int.Parse(displayNumber);
-            if (plusOrMinus)
+			numberTwo = int.Parse(displayNumber);		//Converts the display value to an integer and stores it as the second number
+            if (plusOrMinus)		//If plusOrMinus is true
             {
-                answer = numberOne + numberTwo;
-                display.Text = Convert.ToString(answer);
+                answer = numberOne + numberTwo;		//When it is true it adds the numbers
+                display.Text = Convert.ToString(answer);		//Makes the display show the answer as a string
             }
-            else
+			else		//If plusOrMinus is negative
             {
-                answer = numberOne - numberTwo;
-                display.Text = Convert.ToString(answer);
+				answer = numberOne - numberTwo;		//When it is false it subtracts the numbers
+				display.Text = Convert.ToString(answer);		//Makes the display show the answer as a string
             }
         }
-
     }
 }
